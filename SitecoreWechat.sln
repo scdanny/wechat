@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Foundation", "1. Foundation", "{6B887209-3D83-4AFF-A375-52E162FBBE86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Feature", "2. Feature", "{52735F96-4BCE-457E-BEFC-1C47A0035D7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Project", "3. Project", "{C885F459-1910-4758-9233-7C0216D2C708}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature.SitecoreWechat", "2.Feature\Feature.SitecoreWechat\Feature.SitecoreWechat.csproj", "{F8D4298A-478E-4C67-899C-46C3C6FF8A1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature.SitecoreWechat.Tests", "Feature.SitecoreWechat.Tests\Feature.SitecoreWechat.Tests.csproj", "{4C5BC7D4-6DC2-445D-BB5D-08007900D833}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8D4298A-478E-4C67-899C-46C3C6FF8A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D4298A-478E-4C67-899C-46C3C6FF8A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D4298A-478E-4C67-899C-46C3C6FF8A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D4298A-478E-4C67-899C-46C3C6FF8A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C5BC7D4-6DC2-445D-BB5D-08007900D833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C5BC7D4-6DC2-445D-BB5D-08007900D833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C5BC7D4-6DC2-445D-BB5D-08007900D833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C5BC7D4-6DC2-445D-BB5D-08007900D833}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8D4298A-478E-4C67-899C-46C3C6FF8A1B} = {52735F96-4BCE-457E-BEFC-1C47A0035D7F}
+		{4C5BC7D4-6DC2-445D-BB5D-08007900D833} = {52735F96-4BCE-457E-BEFC-1C47A0035D7F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {F32C8690-5973-4625-B5C9-B60BAAE1261C}
+	EndGlobalSection
+EndGlobal
