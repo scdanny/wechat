@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WeChat.Service;
+using Newtonsoft.Json;
+using Feature.SitecoreWechat.Areas.Wechat.Models;
+
 
 namespace Feature.SitecoreWechat.Areas.Wechat.Controllers
 {
@@ -31,5 +35,20 @@ namespace Feature.SitecoreWechat.Areas.Wechat.Controllers
                 return null;
             }
         }
+
+        public ActionResult GetQrcode()
+
+        {
+            string r1 = QRCodeService.CreateQRCode();
+
+            Qrcode qrcode = JsonConvert.DeserializeObject<Qrcode>(r1);
+
+           //qrcode.DownloadUrl = HttpUtility.UrlEncode("https://admin.wechat.com/cgi-bin/showqrcode?ticket=" + qrcode.ticket);
+
+            return View(qrcode);
+
+            //return Content(QRCodeService.CreateQRCode());
+        }
+
     }
 }

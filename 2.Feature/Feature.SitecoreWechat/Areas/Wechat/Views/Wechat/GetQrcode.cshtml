@@ -1,0 +1,16 @@
+﻿@model Feature.SitecoreWechat.Areas.Wechat.Models.Qrcode
+
+@{
+    ViewBag.Title = "GetQrcode";
+    Layout = "~/Areas/Wechat/Views/Shared/Layout.cshtml";
+}
+
+<h2>GetQrcode</h2>
+
+<li>Ticket: @Model.ticket</li>
+<li>Url: @Model.url</li>
+<li>
+<a href="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=@Model.ticket"
+    >Download the Qrcode</a>
+
+</li>

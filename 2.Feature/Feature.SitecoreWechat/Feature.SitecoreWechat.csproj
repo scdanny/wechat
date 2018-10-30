@@ -177,11 +177,14 @@
     <Content Include="Areas\Wechat\Views\web.config" />
     <Content Include="Areas\Wechat\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Wechat\Views\Wechat\Index.cshtml" />
+    <Content Include="Areas\Wechat\Views\Wechat\GetQrcode.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Wechat\Controllers\WechatController.cs" />
+    <Compile Include="Areas\Wechat\Models\Qrcode.cs" />
     <Compile Include="Areas\Wechat\WechatAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -197,9 +200,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Wechat\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Foundation\WeChat.Service\WeChat.Service.csproj">
+      <Project>{0c54fb05-7640-4d4f-8987-547c50e02494}</Project>
+      <Name>WeChat.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
