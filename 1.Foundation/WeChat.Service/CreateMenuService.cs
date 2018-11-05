@@ -5,19 +5,19 @@ namespace WeChat.Service
 {
     public class CreateMenuService
     {
-        public static string CreateMenu()
+        public static string CreateMenu(CreateMenuParams createMenuParams)
         {
             string accessToken = AccessTokenService.GetAccessToken();
 
             string url = "https://api.wechat.com/cgi-bin/menu/create?access_token=" + accessToken;
 
-            var createMenuParams = new CreateMenuParams();
-            createMenuParams.button.Add(new CreateMenuParams.MenuButton()
-            {
-                type = "view",
-                name = "Sitecore Experience Platform",
-                url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe50bdb27143920a2&redirect_uri=http://wechatpoc.southeastasia.cloudapp.azure.com/&response_type=code&scope=snsapi_userinfo&state=1803#wechat_redirect"
-            });
+            //var createMenuParams = new CreateMenuParams();
+            //createMenuParams.button.Add(new CreateMenuParams.MenuButton()
+            //{
+            //    type = "view",
+            //    name = "Sitecore Experience Platform",
+            //    url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe50bdb27143920a2&redirect_uri=http://wechatpoc.southeastasia.cloudapp.azure.com/&response_type=code&scope=snsapi_userinfo&state=1803#wechat_redirect"
+            //});
 
             string parameters = JsonConvert.SerializeObject(createMenuParams);
             return AppService.WebRequestPost(url, parameters);

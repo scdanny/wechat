@@ -1,13 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Web;
+using Sitecore.Configuration;
 
 namespace WeChat.Service
 {
     public class AccessTokenService
     {
-        private static readonly string appId = "wx45d424260592cfd4";
-        private static readonly string appsecret = "3ce3dade566c8cf5d33acafd97c2fd35";
+        //private static readonly string appId = "wx45d424260592cfd4";
+        //private static readonly string appsecret = "3ce3dade566c8cf5d33acafd97c2fd35";
+
+        private static readonly string appId = Settings.GetSetting("wechat.appid");
+        private static readonly string appsecret = Settings.GetSetting("wechat.appsecret");
 
         public static string GetAccessToken()
         {

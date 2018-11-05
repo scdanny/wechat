@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature.SitecoreWechat.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeChat.Service", "1.Foundation\WeChat.Service\WeChat.Service.csproj", "{0C54FB05-7640-4D4F-8987-547C50E02494}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WechatFans", "3. Project\WechatFans\WechatFans.csproj", "{92641A3A-EF41-4FC1-8987-E9A03EC6969A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0C54FB05-7640-4D4F-8987-547C50E02494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C54FB05-7640-4D4F-8987-547C50E02494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C54FB05-7640-4D4F-8987-547C50E02494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92641A3A-EF41-4FC1-8987-E9A03EC6969A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92641A3A-EF41-4FC1-8987-E9A03EC6969A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92641A3A-EF41-4FC1-8987-E9A03EC6969A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92641A3A-EF41-4FC1-8987-E9A03EC6969A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,9 +47,10 @@ Global
 		{F8D4298A-478E-4C67-899C-46C3C6FF8A1B} = {52735F96-4BCE-457E-BEFC-1C47A0035D7F}
 		{4C5BC7D4-6DC2-445D-BB5D-08007900D833} = {52735F96-4BCE-457E-BEFC-1C47A0035D7F}
 		{0C54FB05-7640-4D4F-8987-547C50E02494} = {6B887209-3D83-4AFF-A375-52E162FBBE86}
+		{92641A3A-EF41-4FC1-8987-E9A03EC6969A} = {C885F459-1910-4758-9233-7C0216D2C708}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F32C8690-5973-4625-B5C9-B60BAAE1261C}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {F32C8690-5973-4625-B5C9-B60BAAE1261C}
 	EndGlobalSection
 EndGlobal

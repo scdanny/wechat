@@ -85,8 +85,9 @@
     <Reference Include="Mvp.Xml, Version=2.3.0.0, Culture=neutral, PublicKeyToken=6ead800d778c9b9f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Mvp.Xml.2.3.0\lib\net20\Mvp.Xml.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sitecore.Kernel.NoReferences.9.0.180604\lib\NET462\Sitecore.Kernel.dll</HintPath>
@@ -174,11 +175,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Areas\Wechat\Views\web.config" />
+    <None Include="Areas\Wechat\Views\web.config" />
     <Content Include="Areas\Wechat\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Wechat\Views\Wechat\Index.cshtml" />
     <Content Include="Areas\Wechat\Views\Wechat\GetQrcode.cshtml" />
+    <Content Include="App_Config\Include\Feature\Feature.SitecoreWechat.config" />
+    <Content Include="Areas\Wechat\Views\Wechat\GetUserInfo.cshtml" />
+    <Content Include="Areas\Wechat\Views\Wechat\EmptyUserInfo.cshtml" />
+    <Content Include="Areas\Wechat\Views\Wechat\IFUserInfo.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\WechatIdentify\GetUserInfo.cshtml" />
+    <Content Include="Views\WechatIdentify\EmptyUserInfo.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +193,7 @@
     <Compile Include="Areas\Wechat\Controllers\WechatController.cs" />
     <Compile Include="Areas\Wechat\Models\Qrcode.cs" />
     <Compile Include="Areas\Wechat\WechatAreaRegistration.cs" />
+    <Compile Include="Controllers\WechatIdentifyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,7 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

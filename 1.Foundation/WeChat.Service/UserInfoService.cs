@@ -1,18 +1,19 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using Sitecore.Configuration;
 
 namespace WeChat.Service
 {
     public class UserInfoService
     {
-        private static readonly string appid = "wx45d424260592cfd4";
-        private static readonly string appsecret = "3ce3dade566c8cf5d33acafd97c2fd35";
+        private static readonly string appId = Settings.GetSetting("wechat.appid");
+        private static readonly string appsecret = Settings.GetSetting("wechat.appsecret");
         public static UserInfo GetUserInfo(string code)
         {
             if (!string.IsNullOrWhiteSpace(code))
             {
-                string tokenUrl = string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code", appid, appsecret, code);
+                string tokenUrl = string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code", appId, appsecret, code);
 
                 AuthTokenResponse token = (AuthTokenResponse)JsonConvert.DeserializeObject(AppService.HttpRequestGet(tokenUrl), typeof(AuthTokenResponse));
 
@@ -22,7 +23,7 @@ namespace WeChat.Service
 
                     if (DateTime.UtcNow > expiresIn)
                     {
-                        string refreshTokenUrl = string.Format("https://api.weixin.qq.com/sns/oauth2/refresh_token?appid={0}&grant_type=refresh_token&refresh_token={1}", appid, token.Refresh_token);
+                        string refreshTokenUrl = string.Format("https://api.weixin.qq.com/sns/oauth2/refresh_token?appid={0}&grant_type=refresh_token&refresh_token={1}", appId, token.Refresh_token);
 
                         token = (AuthTokenResponse)JsonConvert.DeserializeObject(AppService.HttpRequestGet(refreshTokenUrl), typeof(AuthTokenResponse));
                     }
