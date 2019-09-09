@@ -1,0 +1,82 @@
+﻿@using WeChat.Service
+@model Feature.SitecoreWechat.Models.GenPhHtml
+
+<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .textBox {
+        background-color: lightgrey;
+        width: 80%;
+        border: 10px solid green;
+        padding: 25px;
+        margin: 25px;
+    }
+</style>
+
+@if (Sitecore.Context.PageMode.IsPreview)
+{
+    @*<li>
+        <div class="textBox">
+            <h2> It's preview mode</h2>
+            <h2>The Html in placeholder: @Model.PlaceholderKey </h2>
+        </div>
+    </li>
+
+    <li>
+        <div class="textBox">
+            @Model.GenHtml
+        </div>
+
+    </li>*@
+
+
+    @*<a href="http://habitat.dev.local/wechat/message/PublishHtml?itemID=@Model.ItemID&genHtml=@Model.GenHtml" class="button">Publish to Wechat</a>*@
+
+    @*<a class="button" id="button">Publish to Wechat</a>*@
+
+    <a href="http://habitat.dev.local/wechat/message/ResetQuota?appID=wx45d424260592cfd4" class="button">Reset Quota</a>
+
+
+    using (Html.BeginForm("PublishHtml", "Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {
+        @Html.AntiForgeryToken()
+        
+            
+            <input type="hidden" name="itemID" id="itemID" value=@Model.ItemID />
+            <input type="hidden" name="genHtml" id="genHtml" value=@MsgService.Base64Code(Model.GenHtml) />
+       
+
+        
+            @Html.Label("User Name:")
+            @Html.TextBox("toUserName")
+        
+
+        
+            <input type="submit" value="Publish to Wechat" class="button" />
+        
+
+
+    }
+
+}
+
+
+@*<script>
+        $(".button").Click(function () {
+            //alert('OnCliked!');
+            $.post(http://habitat.dev.local/wechat/message/PublishHtml,{itemID:@Model.ItemID,genHtml:@Model.GenHtml});
+        });
+    </script>*@
+

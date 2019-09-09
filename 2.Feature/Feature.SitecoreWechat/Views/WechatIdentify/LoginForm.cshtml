@@ -1,0 +1,32 @@
+﻿@*@using TAC.Utils.Helpers*@
+@using Sitecore.Configuration;
+
+@{ 
+    string appId = Settings.GetSetting("wechat.appid");
+    string appsecret = Settings.GetSetting("wechat.appsecret");
+    string loginRedirect = Uri.EscapeDataString(Settings.GetSetting("wechat.login.redirect_uri"));
+}
+
+<div class="side-widget">
+    <h4 class="text-uppercase">Login</h4>
+    <div class="sidebar">
+        <div class="text">Login in to our Site</div>
+        @using (Html.BeginForm())
+        {
+            @*@Html.FormHandler()*@
+            <div>
+                <input type="text" class="form-control" placeholder="username" name="username">
+                <input type="password" class="form-control" placeholder="password" name="password">
+            </div>
+            <input type="submit" class="btn btn-default" value="Login">
+        }
+        Login by 3rd party: <a href="http://xp901.japanwest.cloudapp.azure.com/wechat/wechat/wechatlogin"><img src="~/Images/login_logo_wechat.png" /></a>
+
+        @*Login by 3rd party: <a href="https://open.weixin.qq.com/connect/qrconnect?appid=@appId&redirect_uri=@loginRedirect&response_type=code&scope=snsapi_login&state=1803#wechat_redirect"><img src="~/Images/login_logo_wechat.png" /></a>*@
+
+        @*Login by 3rd party: <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx45d424260592cfd4&redirect_uri=http://wechatpoc.southeastasia.cloudapp.azure.com/members&response_type=code&scope=snsapi_userinfo&state=1803#wechat_redirect"><img src="~/Images/login_logo_wechat.png" /></a>*@
+
+
+
+    </div>
+</div>

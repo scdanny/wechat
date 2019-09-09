@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WechatFans</RootNamespace>
     <AssemblyName>WechatFans</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,22 +55,21 @@
     <Reference Include="Sitecore.Mvc.Analytics">
       <HintPath>..\..\packages\Sitecore.Mvc.Analytics.NoReferences.9.0.180604\lib\NET462\Sitecore.Mvc.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -98,14 +98,153 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Css\addition.css" />
+    <Content Include="Css\bower_components\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Css\bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Css\Difficulty.css" />
+    <Content Include="Css\font-awesome.min.css" />
+    <Content Include="Css\niteflight.min.css" />
+    <Content Include="Css\vendor.min.css" />
+    <Content Include="fonts\bitter-v7-latin-700.svg" />
+    <Content Include="fonts\bitter-v7-latin-italic.svg" />
+    <Content Include="fonts\bitter-v7-latin-regular.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\open-sans-v13-latin-300.svg" />
+    <Content Include="fonts\open-sans-v13-latin-300italic.svg" />
+    <Content Include="fonts\open-sans-v13-latin-600.svg" />
+    <Content Include="fonts\open-sans-v13-latin-600italic.svg" />
+    <Content Include="fonts\open-sans-v13-latin-700.svg" />
+    <Content Include="fonts\open-sans-v13-latin-700italic.svg" />
+    <Content Include="fonts\open-sans-v13-latin-800.svg" />
+    <Content Include="fonts\open-sans-v13-latin-italic.svg" />
+    <Content Include="fonts\open-sans-v13-latin-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="App_Config\Include\Project\project.WechatFans.Site.config" />
-    <Content Include="Views\project\WechatFans\WechatFans-main.cshtml" />
+    <Content Include="App_Config\Include\Project\project.WechatFans.Site.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Images\carousel-climbing.jpg" />
+    <Content Include="Images\carousel-cycling.jpg" />
+    <Content Include="Images\carousel-hiking.jpg" />
+    <Content Include="Images\carousel-skiing.jpg" />
+    <Content Include="Images\climbing-events.jpg" />
+    <Content Include="Images\Climbing-the-Face-of-Half-Dome.jpg" />
+    <Content Include="Images\cycling-events.jpg" />
+    <Content Include="Images\Cycling-from-Bangkok-to-Chiang-Mai.jpg" />
+    <Content Include="Images\hiking-events.jpg" />
+    <Content Include="Images\Hiking-the-Italian-Alps.jpg" />
+    <Content Include="Images\Logo_400x60.png" />
+    <Content Include="Images\Rock-Climbing-in-the-Czech-Republic.jpg" />
+    <Content Include="Images\skiing-events.jpg" />
+    <Content Include="Images\Skiing-the-Himalayas.jpg" />
+    <Content Include="Scripts1\bootstrap.js" />
+    <Content Include="Scripts1\bootstrap.min.js" />
+    <Content Include="Scripts1\commentsForm.js" />
+    <None Include="Properties\PublishProfiles\habitat.dev.local.pubxml" />
+    <None Include="Scripts1\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts1\jquery-1.10.2.js" />
+    <Content Include="Scripts1\jquery-1.10.2.min.js" />
+    <None Include="Scripts1\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts1\jquery.validate.js" />
+    <Content Include="Scripts1\jquery.validate.min.js" />
+    <Content Include="Scripts1\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts1\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts1\modernizr-2.6.2.js" />
+    <Content Include="Scripts1\Navigation.js" />
+    <Content Include="Scripts1\respond.js" />
+    <Content Include="Scripts1\respond.min.js" />
+    <Content Include="Scripts1\Sitecore.Foundation.Theming.min.js" />
+    <None Include="Scripts1\_references.js" />
+    <Content Include="Views\project\WechatFans\Layouts\WechatFans-main.cshtml" />
+    <Content Include="Css\bower_components\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Css\bower_components\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Css\bower_components\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Css\bower_components\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Css\bower_components\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Css\bower_components\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Css\bower_components\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Css\bower_components\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Css\bower_components\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\bitter-v7-latin-700.eot" />
+    <Content Include="fonts\bitter-v7-latin-700.ttf" />
+    <Content Include="fonts\bitter-v7-latin-700.woff" />
+    <Content Include="fonts\bitter-v7-latin-700.woff2" />
+    <Content Include="fonts\bitter-v7-latin-italic.eot" />
+    <Content Include="fonts\bitter-v7-latin-italic.ttf" />
+    <Content Include="fonts\bitter-v7-latin-italic.woff" />
+    <Content Include="fonts\bitter-v7-latin-italic.woff2" />
+    <Content Include="fonts\bitter-v7-latin-regular.eot" />
+    <Content Include="fonts\bitter-v7-latin-regular.ttf" />
+    <Content Include="fonts\bitter-v7-latin-regular.woff" />
+    <Content Include="fonts\bitter-v7-latin-regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-300.eot" />
+    <Content Include="fonts\open-sans-v13-latin-300.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-300.woff" />
+    <Content Include="fonts\open-sans-v13-latin-300.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-300italic.eot" />
+    <Content Include="fonts\open-sans-v13-latin-300italic.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-300italic.woff" />
+    <Content Include="fonts\open-sans-v13-latin-300italic.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-600.eot" />
+    <Content Include="fonts\open-sans-v13-latin-600.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-600.woff" />
+    <Content Include="fonts\open-sans-v13-latin-600.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-600italic.eot" />
+    <Content Include="fonts\open-sans-v13-latin-600italic.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-600italic.woff" />
+    <Content Include="fonts\open-sans-v13-latin-600italic.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-700.eot" />
+    <Content Include="fonts\open-sans-v13-latin-700.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-700.woff" />
+    <Content Include="fonts\open-sans-v13-latin-700.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-700italic.eot" />
+    <Content Include="fonts\open-sans-v13-latin-700italic.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-700italic.woff" />
+    <Content Include="fonts\open-sans-v13-latin-700italic.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-800.eot" />
+    <Content Include="fonts\open-sans-v13-latin-800.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-800.woff" />
+    <Content Include="fonts\open-sans-v13-latin-800.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-italic.eot" />
+    <Content Include="fonts\open-sans-v13-latin-italic.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-italic.woff" />
+    <Content Include="fonts\open-sans-v13-latin-italic.woff2" />
+    <Content Include="fonts\open-sans-v13-latin-regular.eot" />
+    <Content Include="fonts\open-sans-v13-latin-regular.ttf" />
+    <Content Include="fonts\open-sans-v13-latin-regular.woff" />
+    <Content Include="fonts\open-sans-v13-latin-regular.woff2" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts1\jquery-1.10.2.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Overview\Index.cshtml" />
+    <Content Include="Views\project\WechatFans\Layouts\WechatMsg.cshtml" />
+    <Content Include="Views\project\WechatFans\ParaImg.cshtml" />
+    <Content Include="Views\project\WechatFans\ImgPara.cshtml" />
+    <Content Include="Views\project\WechatFans\pdetail.cshtml" />
+    <Content Include="Views\project\WechatFans\TextLImgR.cshtml" />
+    <Content Include="Views\project\WechatFans\TextRImgL.cshtml" />
+    <Content Include="Views\project\WechatFans\UploadMedia.cshtml" />
+    <Content Include="Views\project\WechatFans\MsgHeader.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\OverviewController.cs" />
+    <Compile Include="Models\OverviewItem.cs" />
+    <Compile Include="Models\OverviewList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\2.Feature\Feature.SitecoreWechat\Feature.SitecoreWechat.csproj">

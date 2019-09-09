@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Feature.SitecoreWechat</RootNamespace>
     <AssemblyName>Feature.SitecoreWechat</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -89,6 +89,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\Lib\Sitecore.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Core">
+      <HintPath>..\..\Lib\Sitecore.Analytics.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Model">
+      <HintPath>..\..\Lib\Sitecore.Analytics.Model.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sitecore.Kernel.NoReferences.9.0.180604\lib\NET462\Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
@@ -111,6 +120,19 @@
     </Reference>
     <Reference Include="Sitecore.NVelocity, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sitecore.NVelocity.9.0.180604\lib\NET462\Sitecore.NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XConnect">
+      <HintPath>..\..\Lib\Sitecore.XConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XConnect.Client">
+      <HintPath>..\..\Lib\Sitecore.XConnect.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XConnect.Client.Configuration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Sitecore.XConnect.Client.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XConnect.Search">
+      <HintPath>..\..\Lib\Sitecore.XConnect.Search.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Zip, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sitecore.Zip.9.0.180604\lib\NET462\Sitecore.Zip.dll</HintPath>
@@ -138,9 +160,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -175,6 +197,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Areas\Wechat\Views\Message\SendForm.cshtml" />
+    <Content Include="Areas\Wechat\Views\Message\SendError.cshtml" />
+    <Content Include="Areas\Wechat\Views\Message\UploadImageForm.cshtml" />
+    <Content Include="App_Config\Include\Feature\SpeedUp.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Wechat\Views\Tracker\Index.cshtml" />
     <None Include="Areas\Wechat\Views\web.config" />
     <Content Include="Areas\Wechat\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Wechat\Views\Wechat\Index.cshtml" />
@@ -183,18 +212,33 @@
     <Content Include="Areas\Wechat\Views\Wechat\GetUserInfo.cshtml" />
     <Content Include="Areas\Wechat\Views\Wechat\EmptyUserInfo.cshtml" />
     <Content Include="Areas\Wechat\Views\Wechat\IFUserInfo.cshtml" />
+    <Content Include="Areas\Wechat\Views\Wechat\WechatLogin.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Images\login_logo_wechat.png" />
     <Content Include="Views\WechatIdentify\GetUserInfo.cshtml" />
     <Content Include="Views\WechatIdentify\EmptyUserInfo.cshtml" />
+    <Content Include="Views\WechatIdentify\LoginForm.cshtml" />
+    <Content Include="Views\GenerateHtml\Index.cshtml" />
+    <Content Include="Views\GenerateHtml\EmptyView.cshtml" />
+    <None Include="Properties\PublishProfiles\Habitat.dev.local.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Wechat\Controllers\MessageController.cs" />
+    <Compile Include="Areas\Wechat\Controllers\TrackerController.cs" />
     <Compile Include="Areas\Wechat\Controllers\WechatController.cs" />
+    <Compile Include="Areas\Wechat\Models\WechatHtml.cs" />
     <Compile Include="Areas\Wechat\Models\Qrcode.cs" />
+    <Compile Include="Areas\Wechat\Models\SendMsgResponse.cs" />
+    <Compile Include="Areas\Wechat\Models\WechatResponse.cs" />
     <Compile Include="Areas\Wechat\WechatAreaRegistration.cs" />
+    <Compile Include="Controllers\GenerateHtmlController.cs" />
     <Compile Include="Controllers\WechatIdentifyController.cs" />
+    <Compile Include="Areas\Wechat\Models\WechatMedia.cs" />
+    <Compile Include="Models\GenPhHtml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Notification.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -208,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\1.Foundation\WeChat.Service\WeChat.Service.csproj">

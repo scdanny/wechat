@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "WechatLogin";
+    //Layout = "~/Areas/Wechat/Views/Shared/Layout.cshtml";
+}
+
+<h2>WechatLogin</h2>
+<html>
+
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+</head>
+<body>
+    <div id="login_container"></div>
+    <script>
+        $(document).ready(function () {
+            var obj = new WxLogin
+                ({
+                    id: "login_container",//div的id
+                    //appid: "wx45d424260592cfd4",
+                    appid: "wxf2443890c9035c8c",
+                    scope: "snsapi_login",//写死
+                    //redirect_uri: encodeURI("http://xp901.japanwest.cloudapp.azure.com/members"),
+                    redirect_uri:"https%3A%2F%2Fcnprod-wos.4008-517-517.cn%2Fcn%2Fwechat_callback.html",
+                    state: "",
+                    style: "",
+                    href: ""
+                });
+        });
+    </script>
+</body>
+</html>
+
+

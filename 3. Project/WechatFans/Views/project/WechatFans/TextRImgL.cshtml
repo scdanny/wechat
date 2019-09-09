@@ -1,0 +1,43 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+<style>
+    .imgLeft {
+        float: left;
+        width: 170px;
+        height: 170px;
+        margin-left: 15px;
+    }
+
+    .textRight {
+        text-align: right;
+        text-indent: 50px;
+    }
+</style>
+<div>
+    <br />
+    <div class="textRight">
+        @Html.Sitecore().Field("pheading")
+    </div>
+
+    @{
+        if (Sitecore.Context.PageMode.IsPreview)
+        {
+            <img src="@Html.Sitecore().Field("mediaurl", new { @class = "center",disableWebEdit = true })" />
+        }
+        else
+        {
+            @Html.Sitecore().Field("pimage", new { @class = "imgLeft", mw = 500, mh = 333 })
+        }
+    }
+
+    @*@Html.Sitecore().Field("pimage", new { @class = "imgLeft" })*@
+
+    <div class="textRight">
+        @Html.Sitecore().Field("ptext")
+    </div>
+    <br />
+</div>

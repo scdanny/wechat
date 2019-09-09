@@ -1,0 +1,33 @@
+﻿@*@model Feature.SitecoreWechat.Areas.Wechat.Models.SendMsgResponse*@
+
+ 
+
+@{
+    ViewBag.Title = "Send";
+    Layout = "~/Areas/Wechat/Views/Shared/Layout.cshtml";
+    string HeaderMsg = "Send Wechat Message";
+    //if (Model != null){
+    //    HeaderMsg += Model.errmsg;
+    //}
+}
+
+<h2>@HeaderMsg</h2>
+
+@using (Html.BeginForm("Send", "Message", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <li>
+        @Html.Label("User Name:")
+        @Html.TextBox("ToUserName")
+    </li>
+    <li>
+        @Html.Label("ContentBody:")
+        @Html.TextArea("ContentBody")
+    </li>
+    <li>
+        @Html.Hidden("MsgType", "text")
+    </li>
+    <li>
+        <input type="submit" value="Send" class="btn btn-default" />
+    </li>
+}

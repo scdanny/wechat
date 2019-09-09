@@ -1,0 +1,25 @@
+﻿@model WechatFans.Models.OverviewList
+
+<section class="section section-full">
+    <!-- [Category List] -->
+    <ul class="block-grid-md-4 block-grid-sm-3 block-grid-xs-1">
+
+        @foreach (var oi in Model)
+        {
+
+            <li>
+                <div class="thumbnail">
+                    <a href="@oi.URL">
+                        @oi.image
+                    </a>
+                    <div class="caption">
+                        <h3 class="teaser-heading">@oi.title</h3>
+                        <a href="@oi.URL" class="btn btn-default">Read More</a>
+                    </div>
+                </div>
+            </li>
+
+        }
+    </ul>
+    <!-- [Category List] -->
+</section>

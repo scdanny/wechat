@@ -31,12 +31,17 @@ namespace Feature.SitecoreWechat.Controllers
 
                 if (userInfo != null)
                 {
-                    // ContactService.AddContact(userInfo);
+                    ContactService.AddContact(userInfo);
                     return View("GetUserInfo", userInfo);
                 }
                 return View("EmptyUserInfo");
             }
             return View("EmptyUserInfo");
+        }
+
+        public ActionResult LoginForm()
+        {
+            return View("LoginForm");
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "UploadImageForm";
+    Layout = "~/Areas/Wechat/Views/Shared/Layout.cshtml";
+}
+
+<h2>UploadImageForm</h2>
+
+@using (Html.BeginForm("UploadImage","Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<li>
+    @Html.Label("Upload File:")
+    @*@Html.TextBox("file", "", new { type = "file" })*@
+    <input type="file" name="file" id="file" onchange="fileCheck(this);" />
+</li>
+
+    
+    <li>
+        <input type="submit" value="upload" class="btn btn-default" />
+    </li>
+    
+
+}
+

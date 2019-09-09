@@ -1,0 +1,38 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .textLeft {
+      text-align: left;
+      text-indent: 50px;
+    }
+</style>
+
+<div>
+
+    <div class="textLeft">
+        <br />
+        @Html.Sitecore().Field("PHeading")
+        <br />
+        @Html.Sitecore().Field("PText")
+        <br />
+        @Html.Sitecore().Field("MediaID")
+        <br />
+        @Html.Sitecore().Field("MediaUrl")
+    </div>
+    <br />
+    @Html.Sitecore().Field("PImage", new { @class = "center", mw = 500, mh = 333 })
+    <br />
+  
+
+</div>

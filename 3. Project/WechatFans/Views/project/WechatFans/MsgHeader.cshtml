@@ -1,0 +1,11 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+<div>
+    <h2>@Html.Sitecore().Field("Title",Model.Item)</h2>
+    <span>@Html.Sitecore().Field("author", Model.Item)</span>
+    <span>@Html.Sitecore().Field("CreateDate",Model.Item)</span>
+</div>

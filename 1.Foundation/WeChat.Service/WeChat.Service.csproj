@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WeChat.Service</RootNamespace>
     <AssemblyName>WeChat.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -66,16 +66,23 @@
     <Compile Include="AccessTokenService.cs" />
     <Compile Include="AppService.cs" />
     <Compile Include="CreateMenuService.cs" />
+    <Compile Include="MsgService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QRCodeService.cs" />
     <Compile Include="ContactService.cs" />
+    <Compile Include="Tencent\Cryptography.cs" />
+    <Compile Include="Tencent\Sample.cs" />
+    <Compile Include="Tencent\WXBizMsgCrypt.cs" />
     <Compile Include="UserInfoService.cs" />
+    <Compile Include="WechatUserFacet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="App_Config\Include\Foundation\foundation.wechat.services.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Tencent\Readme.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

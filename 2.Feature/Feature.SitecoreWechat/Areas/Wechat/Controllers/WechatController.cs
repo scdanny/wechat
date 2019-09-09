@@ -9,6 +9,7 @@ using Sitecore.Configuration;
 
 using Newtonsoft.Json;
 using Feature.SitecoreWechat.Areas.Wechat.Models;
+using WeChat.Service.Tencent;
 
 
 namespace Feature.SitecoreWechat.Areas.Wechat.Controllers
@@ -20,25 +21,70 @@ namespace Feature.SitecoreWechat.Areas.Wechat.Controllers
         {
             return View();
         }
-        public string VerifySignature()
+        public ActionResult VerifySignature()
         {
-            if(Request["echostr"].ToString() !=null)
+            if (Request["echostr"].ToString() != null)
             {
                 string signature = Request["signature"];
                 string timestamp = Request["timestamp"];
                 string nonce = Request["nonce"];
                 string echostr = Request["echostr"];
-                
+
                 Sitecore.Diagnostics.Log.Info("Signature:" + signature + " " + "Timestamp:" + timestamp + " " + "Nonce:" + nonce + " " + "Echostr:" + echostr, this);
 
-                return echostr;
+                return Content(echostr);
 
-            }else
+            }
+            else
             {
                 return null;
             }
         }
 
+        public ActionResult QyCallBack()
+        {
+
+            string token = Settings.GetSetting("CorpToken");//从配置文件获取Token
+
+            string encodingAESKey = Settings.GetSetting("EncodingAESKey");//从配置文件获取EncodingAESKey
+
+            string corpId = Settings.GetSetting("CorpId");//从配置文件获取corpId
+
+            string echoString = Request["echoStr"];
+            string signature = Request["msg_signature"];//企业号的 msg_signature
+            string timestamp = Request["timestamp"];
+            string nonce = Request["nonce"];
+
+            Sitecore.Diagnostics.Log.Info("Signature:" + signature + " " + "Timestamp:" + timestamp + " " + "Nonce:" + nonce + " " + "Echostr:" + echoString, this);
+
+            string decryptEchoString = "";
+            if (CheckSignature(token, signature, timestamp, nonce, corpId, encodingAESKey, echoString, ref decryptEchoString))
+            {
+                if (!string.IsNullOrEmpty(decryptEchoString))
+                {
+                    Sitecore.Diagnostics.Log.Info("decryptEchoString:" + decryptEchoString, this);
+                    return Content(decryptEchoString);
+                }
+                else { return null; }
+            }
+            else { return null; }
+        }
+
+        public bool CheckSignature(string token, string signature, string timestamp, string nonce, string corpId, string encodingAESKey, string echostr, ref string retEchostr)
+        {
+            WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(token, encodingAESKey, corpId);
+            int result = wxcpt.VerifyURL(signature, timestamp, nonce, echostr, ref retEchostr);
+            if (result != 0)
+            {
+                //LogTextHelper.Error("ERR: VerifyURL fail, ret: " + result);
+                return false;
+            }
+
+            return true;
+
+            //ret==0表示验证成功，retEchostr参数表示明文，用户需要将retEchostr作为get请求的返回参数，返回给企业号。
+            // HttpUtils.SetResponse(retEchostr);
+        }
         public ActionResult GetQrcode()
 
         {
@@ -57,14 +103,14 @@ namespace Feature.SitecoreWechat.Areas.Wechat.Controllers
             createMenuParams.button.Add(new CreateMenuParams.MenuButton()
             {
                 type = "view",
-                name = "Sitecore XP",
+                name = "Sitecore",
                 url = "https://open.weixin.qq.com/connect/oauth2/authorize?" + "appid=" + Settings.GetSetting("wechat.appid") + "&redirect_uri=" + Settings.GetSetting("wechat.redirect_uri") + redirect_page + "&response_type=code&scope=snsapi_userinfo&state=1803#wechat_redirect"
             });
 
             createMenuParams.button.Add(new CreateMenuParams.MenuButton()
             {
                 type = "view",
-                name = "Sitecore commerce",
+                name = "Habitat",
                 url = "https://open.weixin.qq.com/connect/oauth2/authorize?" + "appid=" + Settings.GetSetting("wechat.appid") + "&redirect_uri=" + Settings.GetSetting("wechat.redirect_uri") + redirect_page + "&response_type=code&scope=snsapi_userinfo&state=1803#wechat_redirect"
             });
 
@@ -88,7 +134,11 @@ namespace Feature.SitecoreWechat.Areas.Wechat.Controllers
             }
             return View("EmptyUserInfo");
         }
-        
+
+        public ActionResult WechatLogin()
+        {
+            return View("WechatLogin");
+        }
 
 
     }

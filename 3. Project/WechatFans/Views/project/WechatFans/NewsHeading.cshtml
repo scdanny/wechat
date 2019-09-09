@@ -1,0 +1,36 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+
+<style>
+     .textCenter {
+        text-align: center;
+        text-indent: 50px;
+    }
+
+</style>
+<div>
+    <br />
+    <div class="textCenter">
+        <h1>
+            @Html.Sitecore().Field("contentHeading")
+        </h1>
+        <br />
+        <h2>
+            @Html.Sitecore().Field("HomeLink")
+            @Html.Sitecore().Field("NewsDate")
+        </h2>
+        <br />
+    </div>
+
+    <div class="textCenter">
+        <h2>
+            @Html.Sitecore().Field("contentIntro")
+        </h2>
+    </div>
+    <br />
+
+</div>
